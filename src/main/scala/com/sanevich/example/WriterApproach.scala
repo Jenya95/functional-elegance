@@ -82,7 +82,7 @@ object WriterApproach {
   }
 
   def main(args: Array[String]): Unit = {
-    val res = generateReport(
+    val writer = generateReport(
       MedReportConfig(
         insCompId = "183",
         from = Instant.now().minus(7, ChronoUnit.DAYS),
@@ -93,6 +93,7 @@ object WriterApproach {
       )
     )
 
-    pprint.pprintln(res)
+    pprint.pprintln(writer)
+    writer.run._2.limit(2).show(false)
   }
 }
